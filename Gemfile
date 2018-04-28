@@ -21,6 +21,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers', '~> 3.1.2'
+  gem 'capybara', '~> 3.0.2'
 end
 
 group :development do
