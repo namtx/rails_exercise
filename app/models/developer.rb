@@ -9,4 +9,8 @@ class Developer < ApplicationRecord
   def self.touch
     update_all updated_at: Time.zone.now
   end
+
+  def cache_key
+    "#{id}-#{updated_at}"
+  end
 end
