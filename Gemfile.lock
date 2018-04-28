@@ -29,6 +29,10 @@ GEM
       globalid (>= 0.3.6)
     activemodel (5.1.6)
       activesupport (= 5.1.6)
+    activemodel-serializers-xml (1.0.2)
+      activemodel (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (5.1.6)
       activemodel (= 5.1.6)
       activesupport (= 5.1.6)
@@ -57,6 +61,12 @@ GEM
     dotenv-rails (2.2.2)
       dotenv (= 2.2.2)
       railties (>= 3.2, < 6.0)
+    draper (3.0.1)
+      actionpack (~> 5.0)
+      activemodel (~> 5.0)
+      activemodel-serializers-xml (~> 1.0)
+      activesupport (~> 5.0)
+      request_store (~> 1.0)
     erubi (1.7.1)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -163,6 +173,8 @@ GEM
       redis-store (>= 1.2, < 2)
     redis-store (1.5.0)
       redis (>= 2.2, < 5)
+    request_store (1.4.1)
+      rack (>= 1.4)
     rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -234,6 +246,7 @@ DEPENDENCIES
   bundler-audit
   byebug
   dotenv-rails
+  draper (~> 3.0.1)
   factory_bot_rails
   faker
   figaro (~> 1.1.1)

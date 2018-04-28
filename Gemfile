@@ -14,6 +14,7 @@ gem 'turbolinks', '~> 5'
 gem 'figaro', '~> 1.1.1'
 gem 'jquery-rails', '~> 4.3.3'
 gem 'redis-rails', '~> 5.0.2'
+gem 'draper', '~> 3.0.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
