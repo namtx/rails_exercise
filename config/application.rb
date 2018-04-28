@@ -38,5 +38,7 @@ module RailsExercise
       g.javascripts false
       g.stylesheets false
     end
+
+    config.cache_store = :redis_store, "#{ENV['REDIS_HOST']}/0/cache"
   end
 end

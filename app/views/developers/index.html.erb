@@ -1,0 +1,36 @@
+<div class="container">
+  <%= form_tag developers_path, method: :get, class: "form" do |f| %>
+    <div>
+      <div class="search-item">
+        <%= label_tag :languagues %>
+        <%= select_tag :languages, options_from_collection_for_select(@languages, "id", "code"),
+                       multiple: true, data: {selected: params[:languages]} %>
+      </div>
+      <div class="search-item">
+        <%= label_tag :programming_languages %>
+        <%= select_tag :programming_languages, options_from_collection_for_select(@programming_languages, "id", "name"),
+                       multiple: true, data: {selected: params[:programming_languages]} %>
+      </div>
+    </div>
+    <div class="">
+      <%= submit_tag :search %>
+    </div>
+  <% end %>
+  <hr>
+  <div>
+    <table>
+      <tr>
+        <th>Email</th>
+        <th>Programming Languages</th>
+        <th>Languages</th>
+      </tr>
+      <% @developers.decorate.each do |developer| %>
+        <tr>
+          <td><%= developer.email %></td>
+          <td><%= developer.display_programming_languages %></td>
+          <td><%= developer.display_languages %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
