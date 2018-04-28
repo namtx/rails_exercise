@@ -271,3 +271,6 @@ tmtags
 
 
 .envrc
+
+# Ignore application configuration
+/config/application.yml
