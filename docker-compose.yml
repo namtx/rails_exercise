@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+  web:
+    build: ./containers/nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - app1
+      - app2
+    links:
+      - app1
+      - app2
+  db:
+    image: postgres
+    restart: always
+    env_file:
+      - Docker.env
+    volumes:
+      - db-data:/var/lib/postgresql/data
+  redis:
+    image: redis
+    restart: always
+    volumes:
+      - cache-data:/var/lib/redis
+    ports:
+      - "6379:6379"
+  app1: &app1
+    build: .
+    command: bash -c "bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/sample_app
+      - pids-data-1:/sample_app/tmp/pids
+    depends_on:
+      - db
+      - redis
+    links:
+      - db
+      - redis
+    env_file:
+      - Docker.env
+
+  app2:
+      <<: *app1
+      volumes:
+        - .:/sample_app
+        - pids-data-2:/sample_app/tmp/pids
+volumes:
+  db-data:
+  cache-data:
+  pids-data-1:
+  pids-data-2:
